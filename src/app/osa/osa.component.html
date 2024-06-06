@@ -1,0 +1,67 @@
+<app-navigation></app-navigation>
+
+<div class="wrapper">
+  <div class="header">
+    <h1>Anmälan</h1>
+  </div>
+  <div class="header">
+    <mat-form-field>
+      <mat-label>Antal Vuxna</mat-label>
+      <input
+        matInput
+        type="number"
+        min="0"
+        max="10"
+        step="1"
+        [(ngModel)]="form.numberOfAdults"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Antal Barn</mat-label>
+      <input
+        matInput
+        type="number"
+        min="0"
+        step="1"
+        max="10"
+        [(ngModel)]="form.numberOfChildren"
+        (ngModelChange)="updateNumberOfChildren($event)"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="wrapper">
+    <h2>Barn</h2>
+    <div style="display: flex; flex-direction: column; gap: 2em">
+      <ng-container *ngFor="let child of children">
+        <mat-card>
+          <mat-card-header> </mat-card-header>
+          <mat-card-content>
+            <div style="display: flex; flex-direction: column">
+              <div>
+                <mat-form-field style="padding-right: 5em">
+                  <mat-label>Namn</mat-label>
+                  <input matInput type="text" [(ngModel)]="child.name" />
+                </mat-form-field>
+
+                <mat-label>Specialkost</mat-label>
+                <mat-checkbox [(ngModel)]="child.hasSpecalDiet"></mat-checkbox>
+              </div>
+
+              <ng-container *ngIf="child.hasSpecalDiet">
+                <mat-form-field>
+                  <mat-label>Beskriv Specialkost</mat-label>
+                  <textarea
+                    matInput
+                    type="text"
+                    [(ngModel)]="child.specialDiet"
+                  ></textarea>
+                </mat-form-field>
+              </ng-container>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,10 @@
 <mat-toolbar>
-  <span>Ellen & Mattias 2024</span>
+  <span style="cursor: pointer" routerLink="/home">Ellen & Mattias 2024</span>
   <div style="display: flex; justify-content: center; gap: 1em; width: 100%">
     <div style="flex: 1"></div>
+    <button mat-stroked-button routerLink="/home">
+      <mat-icon aria-hidden="false" fontIcon="house"></mat-icon>
+    </button>
     <button mat-stroked-button routerLink="/osa">OSA</button>
     <button mat-stroked-button color="primary" routerLink="/gifts">
       Gåvor
