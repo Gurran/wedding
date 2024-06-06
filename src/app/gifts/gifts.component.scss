@@ -1,0 +1,35 @@
+#center-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+
+  #wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    flex-wrap: wrap;
+
+    * {
+      flex-basis: 30%;
+    }
+  }
+}
+
+.booked {
+  opacity: 0.5;
+}
+
+.card-image {
+  width: 400px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 1em;
+  justify-content: space-evenly;
+}
+// this is the parent span angular inserts for icon inside mat-fab
+::ng-deep mat-icon {
+  margin: 0 !important;
+}
