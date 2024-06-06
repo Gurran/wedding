@@ -14,6 +14,7 @@
         max="10"
         step="1"
         [(ngModel)]="form.numberOfAdults"
+        (ngModelChange)="updateNumberOfAdults($event)"
       />
     </mat-form-field>
     <mat-form-field>
@@ -30,7 +31,7 @@
     </mat-form-field>
   </div>
 
-  <div class="wrapper">
+  <div *ngIf="form.numberOfChildren > 0" class="wrapper">
     <h2>Barn</h2>
     <div style="display: flex; flex-direction: column; gap: 2em">
       <ng-container *ngFor="let child of children">
@@ -64,4 +65,52 @@
       </ng-container>
     </div>
   </div>
+
+  <div *ngIf="form.numberOfAdults > 0" class="wrapper">
+    <h2>Vuxna</h2>
+    <div style="display: flex; flex-direction: column; gap: 2em">
+      <ng-container *ngFor="let adult of adults">
+        <mat-card>
+          <mat-card-content>
+            <div style="display: flex; flex-direction: column">
+              <div>
+                <mat-form-field style="padding-right: 5em">
+                  <mat-label>Namn</mat-label>
+                  <input matInput type="text" [(ngModel)]="adult.name" />
+                </mat-form-field>
+
+                <mat-label>Specialkost</mat-label>
+                <mat-checkbox [(ngModel)]="adult.hasSpecalDiet"></mat-checkbox>
+
+                <mat-label>Alkohol</mat-label>
+                <mat-checkbox [(ngModel)]="adult.drinksAlcohol"></mat-checkbox>
+              </div>
+
+              <ng-container *ngIf="adult.hasSpecalDiet">
+                <mat-form-field>
+                  <mat-label>Beskriv Specialkost</mat-label>
+                  <textarea
+                    matInput
+                    type="text"
+                    [(ngModel)]="adult.specialDiet"
+                  ></textarea>
+                </mat-form-field>
+              </ng-container>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<div style="display: flex; margin: 5rem">
+  <button
+    *ngIf="form.numberOfAdults > 0 || form.numberOfChildren > 0"
+    style="width: 200px; height: 100px; font-size: 2rem; margin: 0 auto"
+    mat-flat-button
+    (click)="openSaveDialog()"
+  >
+    Spara
+  </button>
 </div>

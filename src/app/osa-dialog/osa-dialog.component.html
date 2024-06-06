@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Är detta korrekt?</h2>
+
+<mat-dialog-content>
+  <div>
+    <h3>Antal Personer</h3>
+    {{ data.adults.length + data.children.length }}
+  </div>
+
+  <div>
+    <h3>Antal Specialkost</h3>
+    {{ numberSpecialDiet }}
+  </div>
+
+  <div>
+    <h3>Antal Alkohol</h3>
+    {{ numberAlcohol }}
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">Nej</button>
+  <button mat-button [mat-dialog-close]="true">Ja</button>
+</mat-dialog-actions>
+<!--
+< table mat-table [dataSource]="dataSource" class="mat-elevation-z8"></table>
+-->

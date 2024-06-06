@@ -19,9 +19,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+
 import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { OSADialogComponent } from './osa-dialog/osa-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavigationComponent,
     GiftsComponent,
     OsaComponent,
+    OSADialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatTableModule,
     FormsModule,
   ],
   providers: [provideAnimationsAsync()],

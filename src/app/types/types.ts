@@ -17,3 +17,8 @@ export type Adult = {
   specialDiet: string;
   drinksAlcohol: boolean;
 };
+
+export interface OSADialogData {
+  children: Child[];
+  adults: Adult[];
+}
