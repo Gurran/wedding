@@ -6,9 +6,9 @@ import { OsaComponent } from './osa/osa.component';
 
 const routes: Routes = [
   { path: 'home', title: 'Bröllop 2024', component: HomeComponent },
-
   { path: 'gifts', title: 'Gåvor', component: GiftsComponent },
   { path: 'osa', title: 'OSA', component: OsaComponent },
+  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
