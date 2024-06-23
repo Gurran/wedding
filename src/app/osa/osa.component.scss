@@ -11,3 +11,23 @@
     justify-content: space-evenly;
   }
 }
+
+#submit-wrapper {
+  display: flex;
+  margin: 5rem;
+}
+
+@media (max-width: 650px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .wrapper {
+    padding: unset;
+  }
+
+  #submit-wrapper {
+    display: flex;
+    margin: 3rem;
+  }
+}
